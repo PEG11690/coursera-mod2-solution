@@ -1,0 +1,273 @@
+/*
+Objective is to use just CSS to create a responsive page that will have 3 sizes. In each
+of these sizes there will be 3 boxes (set at 90% to create some margin) which have some 
+text and another title box in the upper right corner of the text box, along with 
+consistent spacing between the 3 boxes:
+    - Desktop ( >= 922 px)
+        Grid with 3 equal size that are in a single horizontal line. Should pick up
+        .col-lg-4 class defined below.
+    - Table (>=768px to < 922 px)
+        This will have a wrap effect, where the top row (1st 2 grids) should be 50% of the
+        webpage (.col-md-6) and the wrapped 3d row should be 100% of the page but still providing
+        the same margin (believe this is really 95% margin to keep boxes aligned
+    - Mobile (<768px)
+        All 3 boxes should be at 100% of the page (.col-sm-12) with a similar margin (95%) and
+        these all wrap.
+
+*/
+
+/********** Base styles **********/
+* {
+  /*clear browser default margins and set border-box*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  /* Set H1 - no issues with this component*/
+  margin-bottom: 36px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.75em;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.secText{
+  /*define the div that will contain the p and the div with class .secTitle1, 2, 3*/
+  border: 3px solid black;
+  height: 150px;
+  background-color: #A52A2A;
+} 
+
+
+div .secTitle1 {
+  /*define the title box for 1st grid item - no issues with this element*/
+  border: 1px solid black; 
+  width: 100px;
+  height: 30px;
+  float: right;          
+  background-color: pink;
+  color: black;
+  text-align: center;
+  font-size: 1.25em; 
+  font-weight: bold;  
+}
+
+div .secTitle2 {
+  /*define the title box for 2nd grid item - no issues with this element*/
+  border: 1px solid black; 
+  width: 100px;
+  height: 30px;
+  float: right;                
+  background-color: aquamarine;
+  color: black;
+  text-align: center;   
+  font-size: 1.25em; 
+  font-weight: bold; 
+}
+
+div .secTitle3 {
+  /*define the title box for 3rd grid item - no issues with this element*/
+  border: 1px solid black; 
+  width: 100px;
+  height: 30px;
+  float: right;             
+  background-color: yellow;
+  color: black;
+  text-align: center; 
+  font-size: 1.25em; 
+  font-weight: bold;   
+}
+
+
+p {
+  /*define p element - no issues with this element*/
+  width: 100%;
+  padding: 20px 5px 5px;
+  font-family: Helvetica;
+  color: white;
+}
+
+/* Simple Responsive Framework. */
+.row {
+  width: 100%;
+}
+
+/********** Desktop **********/
+@media (min-width: 922px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, 
+  .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 
+   {
+    float: left;
+    border: 2px solid black; 
+  }
+  .col-lg-1 {
+    width: 8.33%;      
+  }
+  .col-lg-2 {
+    width: 16.66%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {       /*should be selected based on viewport when >=922 px*/
+    width: 33.33%;
+  }
+  .col-lg-5 {
+    width: 41.66%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .col-lg-8 {
+    width: 66.66%;
+  }
+  .col-lg-9 {
+    width: 74.99%;
+  }
+  .col-lg-10 {
+    width: 83.33%;
+  }
+  .col-lg-11 {
+    width: 91.66%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+
+}
+
+div.col-lg-4 > div.secText {
+  /*This is meant to be picked up the .secText div when at desktop size*/
+width: 90%;
+margin-left: auto;
+margin-right:auto;
+margin-bottom: 16px;
+}
+
+/********** Tablet **********/
+@media (min-width: 768px) and (max-width: 921px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+  .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 
+   {
+    float: left;
+    border: 2px solid green;
+  }
+  .col-md-1 {
+    width: 8.33%;
+  }
+  .col-md-2 {         /*should be picked up based on logic above for 1st 2 grid boxes*/
+    width: 16.66%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33%;
+  }
+  .col-md-5 {
+    width: 41.66%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.33%;
+  }
+  .col-md-8 {
+    width: 66.66%;
+  }
+  .col-md-9 {
+    width: 74.99%;
+  }
+  .col-md-10 {
+    width: 83.33%;
+  }
+  .col-md-11 {
+    width: 91.66%;
+  }
+  .col-md-12 {      /*should be picked up on logic above for the 3rd wrapped grid component*/
+    width: 100%;
+  }
+}
+
+div.col-md-6 > div.secText {
+  /*Meant to mimic the spacing when in Tablet size for 1st 2 grid components*/
+  width: 90%;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 16px;
+}
+
+div.col-md-12 > div.secText {
+  /*Meant to be picked up in Tablet size for the 3rd, wrapped grid component and set
+    different margin width so that it aligns with the unwrapped grid components*/
+  width: 95%;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 16px;
+
+}
+
+/********** Mobile **********/
+@media (max-width: 767px) {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, 
+  .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12v 
+   {
+    float: left;
+    border: 2px solid green;
+    /*margin-bottom: 16px;*/
+  }
+  .col-sm-1 {
+    width: 8.33%;
+  }
+  .col-sm-2 {
+    width: 16.66%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33%;
+  }
+  .col-sm-5 {
+    width: 41.66%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.33%;
+  }
+  .col-sm-8 {
+    width: 66.66%;
+  }
+  .col-sm-9 {
+    width: 74.99%;
+  }
+  .col-sm-10 {
+    width: 83.33%;
+  }
+  .col-sm-11 {
+    width: 91.66%;
+  }
+  .col-sm-12 {      /*should be picked up when Mobile size*/
+    width: 100%;
+  }
+
+}
+	
+.col-sm-12 > .secText {
+  /* This item gets pick up even if the brower is in any size, not sure how.
+     Meant to apply to all grid components when in Mobile mode and apply margin similar to
+     what was in place for the Desktop and tablet sizes top line*/
+  width: 95%;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 16px;
+} 
