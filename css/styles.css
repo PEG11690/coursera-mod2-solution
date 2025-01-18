@@ -36,8 +36,9 @@ h1 {
 
 .secText{
   /*define the div that will contain the p and the div with class .secTitle1, 2, 3*/
+  width:90%;
   border: 3px solid black;
-  height: 150px;
+  height: 175px;
   background-color: #A52A2A;
 } 
 
@@ -85,7 +86,7 @@ div .secTitle3 {
 p {
   /*define p element - no issues with this element*/
   width: 100%;
-  padding: 20px 5px 5px;
+  padding: 38px 5px 5px 5px;
   font-family: Helvetica;
   color: white;
 }
@@ -97,7 +98,7 @@ p {
 
 /********** Desktop **********/
 @media (min-width: 922px) {
-  .col-lg-4, 
+  .col-lg-4 
    {
     float: left;
     /*border: 2px solid black; */
@@ -132,7 +133,7 @@ margin-bottom: 16px;
 
 div.col-md-6 > div.secText {
   /*Meant to mimic the spacing when in Tablet size for 1st 2 grid components*/
-  width: 90%;
+  /* width: 90%; */
   margin-left: auto;
   margin-right:auto;
   margin-bottom: 16px;
@@ -141,7 +142,7 @@ div.col-md-6 > div.secText {
 div.col-md-12 > div.secText {
   /*Meant to be picked up in Tablet size for the 3rd, wrapped grid component and set
     different margin width so that it aligns with the unwrapped grid components*/
-  width: 95%;
+  /* width: 95%; */
   margin-left: auto;
   margin-right:auto;
   margin-bottom: 16px;
@@ -166,7 +167,7 @@ div.col-md-12 > div.secText {
   /* This item gets pick up even if the brower is in any size, not sure how.
      Meant to apply to all grid components when in Mobile mode and apply margin similar to
      what was in place for the Desktop and tablet sizes top line*/
-  width: 95%;
+  /* width: 95%; */
   margin-left: auto;
   margin-right:auto;
   margin-bottom: 16px;
