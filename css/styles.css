@@ -1,31 +1,12 @@
-/*
-Objective is to use just CSS to create a responsive page that will have 3 sizes. In each
-of these sizes there will be 3 boxes (set at 90% to create some margin) which have some 
-text and another title box in the upper right corner of the text box, along with 
-consistent spacing between the 3 boxes:
-    - Desktop ( >= 922 px)
-        Grid with 3 equal size that are in a single horizontal line. Should pick up
-        .col-lg-4 class defined below.
-    - Table (>=768px to < 922 px)
-        This will have a wrap effect, where the top row (1st 2 grids) should be 50% of the
-        webpage (.col-md-6) and the wrapped 3d row should be 100% of the page but still providing
-        the same margin (believe this is really 95% margin to keep boxes aligned
-    - Mobile (<768px)
-        All 3 boxes should be at 100% of the page (.col-sm-12) with a similar margin (95%) and
-        these all wrap.
-
-*/
 
 /********** Base styles **********/
 * {
-  /*clear browser default margins and set border-box*/
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 h1 {
-  /* Set H1 - no issues with this component*/
   margin-bottom: 36px;
   font-family: Helvetica, sans-serif;
   font-size: 1.75em;
@@ -34,17 +15,19 @@ h1 {
   text-align: center;
 }
 
+  /*Define the default div that will contain the p and the div with class .secTitle1, 2, 3*/
 .secText{
-  /*define the div that will contain the p and the div with class .secTitle1, 2, 3*/
   width:90%;
   border: 3px solid black;
   height: 175px;
   background-color: #A52A2A;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right:auto;
 } 
 
-
+/*Define the title box for 1st grid item*/
 div .secTitle1 {
-  /*define the title box for 1st grid item - no issues with this element*/
   border: 1px solid black; 
   width: 100px;
   height: 30px;
@@ -56,8 +39,8 @@ div .secTitle1 {
   font-weight: bold;  
 }
 
+/*Define the title box for 2nd grid item*/
 div .secTitle2 {
-  /*define the title box for 2nd grid item - no issues with this element*/
   border: 1px solid black; 
   width: 100px;
   height: 30px;
@@ -69,8 +52,8 @@ div .secTitle2 {
   font-weight: bold; 
 }
 
+/*Define the title box for 3rd grid item*/
 div .secTitle3 {
-  /*define the title box for 3rd grid item - no issues with this element*/
   border: 1px solid black; 
   width: 100px;
   height: 30px;
@@ -84,7 +67,6 @@ div .secTitle3 {
 
 
 p {
-  /*define p element - no issues with this element*/
   width: 100%;
   padding: 38px 5px 5px 5px;
   font-family: Helvetica;
@@ -101,19 +83,10 @@ p {
   .col-lg-4 
    {
     float: left;
-    /*border: 2px solid black; */
   }
-  .col-lg-4 {       /*should be selected based on viewport when >=922 px*/
+  .col-lg-4 {       
     width: 33.33%;
   }
-}
-
-div.col-lg-4 > div.secText {
-  /*This is meant to be picked up the .secText div when at desktop size*/
-width: 90%;
-margin-left: auto;
-margin-right:auto;
-margin-bottom: 16px;
 }
 
 /********** Tablet **********/
@@ -121,32 +94,30 @@ margin-bottom: 16px;
   .col-md-6, .col-md-12 
    {
     float: left;
-    /* border: 2px solid green; */
   }
-  .col-md-6 {         /*should be picked up based on logic above for 1st 2 grid boxes*/
+  .col-md-6 {         
     width: 50%;
   }
-  .col-md-12 {      /*should be picked up on logic above for the 3rd wrapped grid component*/
+  .col-md-12 {      
     width: 100%;
   }
-}
+  /*Defines special class for the Tablet size 3rd, wrapped grid component and set
+    different margin width so that it aligns with the unwrapped grid components*/
+  .secTextMd12 {
+    width: 95%; 
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 15px;
+  }
 
-div.col-md-6 > div.secText {
-  /*Meant to mimic the spacing when in Tablet size for 1st 2 grid components*/
-  /* width: 90%; */
-  margin-left: auto;
-  margin-right:auto;
-  margin-bottom: 16px;
-}
-
-div.col-md-12 > div.secText {
   /*Meant to be picked up in Tablet size for the 3rd, wrapped grid component and set
     different margin width so that it aligns with the unwrapped grid components*/
-  /* width: 95%; */
-  margin-left: auto;
-  margin-right:auto;
-  margin-bottom: 16px;
-
+  .col-md-12 > .secTextMd12 {
+    width: 95%; 
+    margin-left: auto;
+    margin-right:auto;
+    margin-bottom: 15px;
+  }
 }
 
 /********** Mobile **********/
@@ -154,21 +125,8 @@ div.col-md-12 > div.secText {
   .col-sm-12 
    {
     float: left;
-    /* border: 2px solid green; */
-    /*margin-bottom: 16px;*/
   }
-  .col-sm-12 {      /*should be picked up when Mobile size*/
+  .col-sm-12 {      
     width: 100%;
   }
-
 }
-	
-.col-sm-12 > .secText {
-  /* This item gets pick up even if the brower is in any size, not sure how.
-     Meant to apply to all grid components when in Mobile mode and apply margin similar to
-     what was in place for the Desktop and tablet sizes top line*/
-  /* width: 95%; */
-  margin-left: auto;
-  margin-right:auto;
-  margin-bottom: 16px;
-} 
